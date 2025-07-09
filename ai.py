@@ -1,12 +1,11 @@
 import requests
 import json
-import os
 import sys
 
-# 从环境变量获取 API 密钥
-API_KEY = os.getenv("GROQ_API_KEY")  # 确保在环境变量中设置 GROQ_API_KEY
-if not API_KEY:
-    print("错误：请设置环境变量 GROQ_API_KEY")
+# 直接设置 Groq API 密钥
+GROQ_API_KEY = "你的API密钥"  # 请替换为实际的 Groq API 密钥
+if not GROQ_API_KEY:
+    print("错误：请在脚本中设置 GROQ_API_KEY")
     sys.exit(1)
 
 # Groq API 端点
@@ -36,7 +35,7 @@ def get_ai_response(user_input):
     # 设置请求头
     headers = {
         "Content-Type": "application/json",
-        "Authorization": f"Bearer {API_KEY}"
+        "Authorization": f"Bearer {GROQ_API_KEY}"
     }
 
     try:
